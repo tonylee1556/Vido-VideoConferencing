@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vido: Style Guide</title>
+
+    <style type="text/css">
+    body{
+        padding: 40px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+        .color-box{
+            display: block;
+            position: relative;
+            margin-top:30px;
+        }
+        .color{
+            display: inline-block;
+            width: 200px;
+        }
+        .left-color{
+            height: 100px;
+            float: left;
+        }
+        .right-color{
+            padding: 10px;
+            height:100px;
+        }
+
+        #first-color{
+            background-color: #1E1ADD;
+        }
+
+        #second-color{
+            background-color: #B4D3EF;
+        }
+
+        #third-color{
+            background-color: #0038FF;
+        }
+
+        #fourth-color{
+            background-color: #EAF6FF;
+        }
+
+        .primary-button{
+            height:40px;
+            width:150px;
+            color:white;
+            background-color: #0038FF;
+            text-align: center;
+            line-height: 40px;
+            cursor:pointer;
+            border-radius:5px;
+        }
+        .primary-button:hover{
+            background-color: #0a32c2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vido: Style Guide</h1>
+    <hr>
+    
+    <div>
+        <h2>Colours</h2>
+        <div class="color-box">
+            <div class="left-color color" id="first-color"></div>
+            <div class="right-color color">
+                Code: <b>#1E1ADD</b><br>
+                Name: Main Highlight Colour<br>
+            </div>
+        </div>
+
+        <div class="color-box">
+            <div class="left-color color" id="second-color"></div>
+            <div class="right-color color">
+                Code: <b>#B4D3EF</b><br>
+                Name: Primary Colour<br>
+            </div>
+        </div>
+
+        <div class="color-box">
+            <div class="left-color color" id="third-color"></div>
+            <div class="right-color color">
+                Code: <b>#0038FF</b><br>
+                Name: Button Primary Colour<br>
+            </div>
+        </div>
+        <div class="color-box">
+            <div class="left-color color" id="fourth-color"></div>
+            <div class="right-color color">
+                Code: <b>#EAF6FF</b><br>
+                Name: Background Colour<br>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <div>
+        <h2>Headings</h2>
+
+        <h1>Header 1</h1>
+        <h2>Header 2</h2>
+        <h3>Header 3</h3>
+        <h4>Header 4</h4>
+        <h5>Header 5</h5>
+        <h6>Header 6</h6>
+    </div>
+
+    <hr>
+
+    <div>
+        <h2>Fonts</h2>
+
+        <p>
+            <b>Font name:</b> 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        </p>
+    </div>
+    <hr>
+    <div>
+        <h2>Buttons</h2>
+        <div>
+            <div class="primary-button">
+                Primary Button
+            </div>
+        </div>
+    </div>
+</body>
+</html>
