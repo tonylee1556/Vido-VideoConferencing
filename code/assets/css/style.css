@@ -1,0 +1,92 @@
+*{
+    box-sizing: border-box;
+    /* border:1px solid black; */
+}
+
+.header{
+    position: relative;
+    width:100%;
+    height:60px;
+    padding-top:10px;
+    padding-left:20px;
+    background-color: rgb(25, 187, 187);
+}
+
+.sitename{
+    position: relative;
+    display: inline-block;
+    width:100px;
+    padding-top:10px;
+    float:left;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.userdetails{
+    position: relative;
+    display: inline-block;
+    width:500px;
+    float:right;
+}
+
+.userspan{
+    font-weight:bold;
+}
+
+.userdetail-username{
+    color:blue;
+}
+
+.main{
+    position: relative;
+    width:100%;
+    height:calc(100vh - 60px);
+    padding-top:60px;
+    background-color: rgb(210, 210, 235);
+}
+
+.inside{
+    padding:20px;
+    background-color: white;
+    min-height:300px;
+}
+
+.inside-heading{
+    color:blue;
+    font-weight: bold;
+}
+
+.call-table{
+    margin-left: 20px;
+    width:300px;
+    text-align: left;
+    color:black;
+}
+
+.call-table td{
+    font-weight:bold;
+    cursor: pointer;
+}
+
+.call-table td:hover{
+    color: red;
+}
+
+.circle{
+    margin-left:30px;
+    margin-top:10px;
+    height:100px;
+    width:100px;
+    border-radius: 50%;
+}
+
+.user-image{
+    height:100px;
+    width:100px;
+    border-radius: 50%;
+}
+
+.start-call{
+    text-align: left;
+    padding-left:30px;
+}
