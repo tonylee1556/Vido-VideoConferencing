@@ -77,16 +77,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
+                echo "should be there";
                 //email service
                 // the message
-                $msg = "This is to verify your account \n On Vido- Video Conferencing Application";
+                $sqlSel = "select * from login where email = '".$username."'";
+                $query = mysqli_query($link, $sqlSel);
+                $row = mysqli_fetch_assoc($query);
+                $link = "http://localhost/github/Vido-VideoConferencing/code/verifyUser.php?userId=".$row['user_id']."&email=".$row['email']."";
+                $msg = "This is to verify your account \n On Vido- Video Conferencing Application. <a href=".$link."></a>";
                 // use wordwrap() if lines are longer than 70 characters
                 $msg = wordwrap($msg,70);
                 // send email
                 mail($username,"Vido-Authentication",$msg);
-
+                echo $link;
                 // Redirect to login page
-                header("location: login.php");
+                // header("location: login.php");
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
@@ -97,7 +102,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Close connection
-    mysqli_close($link);
+    // mysqli_close($link);
 }
 ?>
  
