@@ -46,7 +46,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </div>
             <br><br>
             <div class="start-call">
-            <button class="btn btn-primary">Start Call</button>
+            <a href="video.php"><button class="btn btn-primary">Start Call</button></a>
             </div>
             </div>
 
