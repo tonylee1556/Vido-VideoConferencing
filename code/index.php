@@ -15,26 +15,17 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <meta charset="UTF-8">
     <title>Welcome - Vido</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body{ font: 14px sans-serif; text-align: center; }
-    </style>
+
 
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 </head>
 <body>
-    <!-- <h1 class="my-5">Hi, <b>
-   
-    </b>. Welcome to Vido.</h1>
-    <p>
-        <a href="passwordReset.php" class="btn btn-warning">Reset Your Password</a>
-        <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
-    </p> -->
-
+    <!-- header section -->
     <div class="header">
         <div class="sitename"> Vido </div>
         <div class="userdetails">
-            
+            <!-- right side of header -->
             <span class="userspan"> Hello, 
                 <a href="settings.php">
                     <span class="userdetail-username"><?php echo htmlspecialchars($_SESSION["username"]);?></span> 
@@ -45,6 +36,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
     </div>
 
+<!-- main content section -->
     <div class="main">
     <div class="container">
         <div class="row">
@@ -57,18 +49,23 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <button class="btn btn-primary">Start Call</button>
             </div>
             </div>
+
+            <!-- Friends table section -->
             <div class="col-sm">
                 <div class="inside">
                     <span class="inside-heading">Friends</span>
                     <br><br>
                     <table class="call-table">
-                    <tr><td>Kelly Jonas</td><td><i class="fas fa-video" style="font-size:20px;"></i></td></tr>
-                    <tr><td>Kelly Jonas</td><td><i class="fas fa-video" style="font-size:20px;"></i></td></tr>
-                    <tr><td>Kelly Jonas</td><td><i class="fas fa-video" style="font-size:20px;"></i></td></tr>
-                    <tr><td>Kelly Jonas</td><td><i class="fas fa-video" style="font-size:20px;"></i></td></tr>
+                    <tr><td>Kelly Jonas</td><td><i class="fas fa-video icon"></i></td></tr>
+                    <tr><td>Kelly Jonas</td><td><i class="fas fa-video icon"></i></td></tr>
+                    <tr><td>Kelly Jonas</td><td><i class="fas fa-video icon"></i></td></tr>
+                    <tr><td>Kelly Jonas</td><td><i class="fas fa-video icon"></i></td></tr>
                     </table>
                 </div>
             </div>
+
+
+            <!-- Call history section -->
             <div class="col-sm">
             <div class="inside">
             <span class="inside-heading">History</span>

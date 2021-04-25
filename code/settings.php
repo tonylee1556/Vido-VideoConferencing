@@ -1,12 +1,33 @@
 <?php
 // Initialize the session
 session_start();
- 
+include "config.php";
+
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
+
+//fetching user's current details
+$email = $_SESSION["username"];
+$sql = "SELECT * FROM users WHERE email='".$email."'";
+$query = mysqli_query($link,$sql);
+$row = mysqli_fetch_assoc($query);
+
+
+// on submit button click, update user's details
+if(isset($_POST["submit"])){
+    $name = $_POST["nameInput"];
+    $sqlUpdate = "UPDATE users SET name='".$name."' WHERE email = '".$email."'";
+
+    if ($link->query($sqlUpdate) === TRUE) {
+        // echo "Record updated successfully";
+      } else {
+        echo "Error: " . $sqlUpdate . "<br>" . $link->error;
+      }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -18,12 +39,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <title>Vido - Settings</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body{ font: 14px sans-serif; text-align: center; }
-    </style>
+
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <!-- header section -->
         <div class="header">
             <a href="index.php"><div class="sitename"> Vido </div></a>
             <div class="userdetails">
@@ -38,14 +58,28 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </div>
         </div>
 
+    <!-- main body page -->
         <div class="main">
     <div class="container">
         <h3>Settings</h3>
 
+        <!-- password reset and logout button -->
         <p>
         <a href="passwordReset.php" class="btn btn-warning">Reset Your Password</a>
         <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
-    </p>
+        </p>
+
+        <hr>
+        <br>
+        <br>
+
+        <!-- personal info change form -->
+        <h5>Personal Information</h5>
+        <form method="post" action="">
+        Name: <input type="text" placeholder="name" name="nameInput" value="<?php echo $row["name"]; ?>"/>
+        <input type="submit" name="submit" value="Change">
+        </form>
+
     </div>
 </body>
 </html>

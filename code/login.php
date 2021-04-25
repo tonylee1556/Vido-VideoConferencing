@@ -95,10 +95,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Vido - Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
+
 </head>
 <body>
     <div class="wrapper login-wrapper">
@@ -112,16 +109,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         ?>
         <div class="login-div">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+        <!-- email input -->
             <div class="form-group">
                 <label>Email</label>
                 <input type="email" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
             </div>    
+            <!-- password input -->
             <div class="form-group">
                 <label>Password</label>
                 <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
+
+            <!-- submit btn -->
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
