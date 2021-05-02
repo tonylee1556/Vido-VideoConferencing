@@ -16,14 +16,20 @@ if(isset($_POST["contactSubmit"])){
 
     $sqlSel = "SELECT * FROM users WHERE email = '".$contactEmail."'";
     $querySel = mysqli_query($link, $sqlSel);
-    $rowSel = mysqli_fetch_assoc($querySel);
 
-    $sql = "INSERT INTO contacts VALUES('".$user1."', '".$rowSel['user_id']."')";
-    if ($link->query($sql) === TRUE) {
-        echo "Contact Added Successfully";
-      } else {
-        echo "Error: " . $sql . "<br>" . $link->error;
-      }
+
+    if(mysqli_num_rows($querySel) == 0){
+        echo 'No user registered with this email';
+    }else{
+        $rowSel = mysqli_fetch_assoc($querySel);
+        $sql = "INSERT INTO contacts VALUES('".$user1."', '".$rowSel['user_id']."')";
+        if ($link->query($sql) === TRUE) {
+            echo "Contact Added Successfully";
+          } else {
+            echo "Error: " . $sql . "<br>" . $link->error;
+          }
+    }
+   
 }
 ?>
  
