@@ -7,6 +7,24 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
+
+// Include config file
+require_once "config.php";
+
+$userId = $_SESSION["id"];
+$sqlSel = "SELECT * FROM contacts WHERE user1_id = '".$userId."'";
+$querySel = mysqli_query($link, $sqlSel);
+
+$contacts = array();
+while($rowSel = mysqli_fetch_assoc($querySel)){
+    $sqlNames = "SELECT * FROM users WHERE user_id = '".$rowSel['user2_id']."'";
+    $queryNames = mysqli_query($link, $sqlNames);
+    $rowNames = mysqli_fetch_assoc($queryNames);
+
+    array_push($contacts, $rowNames['email']);
+}
+
+
 ?>
  
 <!DOCTYPE html>
@@ -56,10 +74,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     <span class="inside-heading">Friends</span>
                     <br><br>
                     <table class="call-table">
-                    <tr><td>Kelly Jonas</td><td><i class="fas fa-video icon"></i></td></tr>
-                    <tr><td>Kelly Jonas</td><td><i class="fas fa-video icon"></i></td></tr>
-                    <tr><td>Kelly Jonas</td><td><i class="fas fa-video icon"></i></td></tr>
-                    <tr><td>Kelly Jonas</td><td><i class="fas fa-video icon"></i></td></tr>
+                    <?php
+                        for($i=0; $i<count($contacts); $i++){
+                            echo '<tr><td>'.$contacts[$i].'</td><td><i class="fas fa-video icon"></i></td></tr>';
+           
+                        }
+                    ?>
                     </table>
                 </div>
             </div>
@@ -72,12 +92,19 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <br><br>
                     <table class="call-table">
                     <tr><td>Kelly Jonas</td><td>30 min</td></tr>
-                    <tr><td>Kelly Jonas</td><td>24 min</td></tr>
-                    <tr><td>Kelly Jonas</td><td>12 min</td></tr>
-                    <tr><td>Kelly Jonas</td><td>2 min </td></tr>
+                    <tr><td>Tony Lee</td><td>24 min</td></tr>
+                    <tr><td>Praty James</td><td>12 min</td></tr>
+                    <tr><td>Brooke Throp</td><td>2 min </td></tr>
                     </table>
             </div>
             </div>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+        <div class="row">
+            <a href="addContact.php">Add Contact</a>
         </div>
     </div>
     </div>
